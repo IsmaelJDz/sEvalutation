@@ -27,3 +27,24 @@ function padre(nombre) {
 }
 
 padre("Ismael principal");
+
+// Pregunta 3
+// Hoiting es la forma de declarar una funcion y ejecutarla, las funciones son cuidadanos de primer nivel
+// o asi se les conoce, cuando es una declaration funcion no existe problema si se ejecuta antes de declararla
+// ya que el DOM carga las funciones primero.
+// Si es una expresion funcion si existe un problema si ejecutas antes de declararla. Ejemplos
+
+// Declaration function
+suma(2, 4);
+function suma(num, numTwo) {
+  console.log(`${num + numTwo}`);
+}
+
+// Expression function
+//sumaExpression(2, 4);
+var sumaExpression = function(numE, numTwoE) {
+  console.log(`${numE + numTwoE}`);
+};
+
+//******* NOTA ********* Se comentara la ejecución del sumaExpresison dado que al no hacer un catch
+// de bloquea le ejecucion de las siguientes instrucciones.
