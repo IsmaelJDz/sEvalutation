@@ -48,3 +48,79 @@ var sumaExpression = function(numE, numTwoE) {
 
 //******* NOTA ********* Se comentara la ejecución del sumaExpresison dado que al no hacer un catch
 // de bloquea le ejecucion de las siguientes instrucciones.
+
+// Pregunta 4
+// Patron Moduele Javascript
+// Lo que permite este patron es encapsular las variables, atributo y metodos y solo accederlos
+// mediante la instancia de myApp y la segunda linea da error porque no puede ser accedida,
+// la forma de accederla es retornando un Pojo con la funcion sum
+
+//******* NOTA ********* se comentara la funcion sum dado que ejecutara un error y evitara que se ejecuten
+// las siguientes intrucciones.
+
+var myApp = (function() {
+  var desc = "Mi nombre es:";
+  var name = "Ismael";
+
+  var sum = function(param1, param2) {
+    return param1 + param2;
+  };
+
+  return {
+    myMessage: function() {
+      return desc + " " + name;
+    }
+  };
+})();
+
+console.log(myApp.myMessage());
+//console.log(myApp.sum(10, 5));
+
+// Patron MVC dividir responsabilidades los modelos, vistas y los controladores
+// Singleton no repetir instancias a la base de datos, si ya existe una isntancia de ese objeto
+// la devolvemos directamente y si no se crea una nueva.
+
+class Office {
+  constructor(nombre, empleado) {
+    this.nombre = nombre;
+    this.empleado = empleado;
+
+    if (typeof Office.instance === "object") {
+      return Office.instance;
+    }
+
+    Office.instance = this;
+    return this;
+  }
+}
+
+const office = new Office("Ismael", 30);
+console.log(office);
+
+//Patron factory
+// Este patron se encarga de instanciar o crear los objetos, una vez que el programa se ejecuta se crean
+// las instancias
+function ConstructorTextos() {
+  this.crearElemento = function(texto, tipo) {
+    let html;
+
+    if (tipo === "input") {
+      html = new InputHTML(texto);
+    } else if (tipo === "img") {
+      html = new ImgHTML(texto);
+    }
+
+    return html;
+  };
+}
+
+const InputHTML = function(texto) {
+  this.texto = texto;
+};
+
+const textos = new ConstructorTextos();
+const elementosTextos = [];
+
+elementosTextos.push(textos.crearElemento("Bienvenido", "input"));
+
+console.log(elementosTextos);
