@@ -153,3 +153,8 @@ function mostrarUlrLet() {
 }
 
 mostrarUlrLet();
+
+//Pregunta 6
+// Programacion orientada a objetos (Prototipos)
+// Programacion reactiva, como bien lo dice su nombre reacciona a eventos por el usuario o cambio en estado
+// Programacion functional, expresa lo que hace, pero no como, ejemplos claros el map de ES6
