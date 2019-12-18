@@ -158,3 +158,24 @@ mostrarUlrLet();
 // Programacion orientada a objetos (Prototipos)
 // Programacion reactiva, como bien lo dice su nombre reacciona a eventos por el usuario o cambio en estado
 // Programacion functional, expresa lo que hace, pero no como, ejemplos claros el map de ES6
+
+// Pregunta 7 Llamado a la Api
+
+const urlPokeApi = "https://pokeapi.co/api/v2/pokemon/bulbasaur/";
+
+const getData = () => {
+  const results = fetch(urlPokeApi);
+  results
+    .then(data => data.json())
+    .then(results => {
+      console.log(results.moves[1].move.url);
+      console.log(results.stats.filter(stat => stat.base_stat === 65));
+      let filterBase_stat = results.stats.filter(stat => stat.base_stat === 65);
+      console.log(
+        `new_base_stat`,
+        filterBase_stat.map(finalResult => finalResult.base_stat + 1)
+      );
+    });
+};
+
+getData();
