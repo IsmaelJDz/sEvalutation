@@ -124,3 +124,32 @@ const elementosTextos = [];
 elementosTextos.push(textos.crearElemento("Bienvenido", "input"));
 
 console.log(elementosTextos);
+
+//Pregunta 5
+//las variables const solo se utilizan cuando el valor no va cambiar dado que al querer modificar no se podra.
+//Se debe tomar en cuenta que si se redefine la variable urlApi dentro de la funcion mostrarUrl
+// si va a poder ser moficicada ya que esta dentro de otro escope, es decir cuando estan dentro del mismo scope
+// no van a poder ser redefinidas.
+// let son variables que solo son block scope y no se pueden leer en otro hambito a menos que sean
+// pasada por parametros
+
+const urlApi = "https://pokeapi.co/api/v2/pokemon/bulbasaur/";
+const dirStatic = "./rootUrl";
+//urlApi = "otra cosa";
+
+function mostrarUrl(urlApi) {
+  //urlApi = "Otra cosa";
+  console.log(urlApi);
+}
+mostrarUrl(urlApi);
+
+function mostrarUlrLet() {
+  let nombre = "Ismael";
+  if (nombre === "Ismael") {
+    nombre = "Oscar";
+  }
+
+  console.log(nombre);
+}
+
+mostrarUlrLet();
